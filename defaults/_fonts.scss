@@ -1,0 +1,64 @@
+@import '../mixins/fontface';
+
+//
+// Fonts
+// --------------------------------------------------
+
+//
+// Font Weights
+// -------------------------
+// 100 = thin
+// 200 = extra-light, ultra-light
+// 300 = light
+// 400 = normal, regular, book, roman
+// 500 = medium
+// 600 = semi-bold, demi-bold
+// 700 = bold
+// 800 = heavy
+// 900 = black
+// 910 = extra-black
+//
+// $fontname-weight-match: (
+//   'ExtraBold': 910,
+//   'Black': 900,
+//   'Heavy': 800,
+//   'Bold': 700,
+//   'SemiBold': 600,
+//   'Medium': 500,
+//   'Regular': 400,
+//   'Light': 300,
+//   'ExtraLight': 200,
+//   'Thin': 100
+// );
+
+//
+//  Mixin Usage
+//  @include font-face('fontname', 'font folder', 'font file name prefix', $fontnameWeightMatch, $fontStyle: normal);
+//
+
+// Montserrat
+$montserratWeightMatch: (
+  'ExtraBold': 910,
+  'Black': 900,
+  'Bold': 700,
+  'SemiBold': 600,
+  'Medium': 500,
+  'Regular': 400,
+  'Light': 300,
+  'ExtraLight': 200,
+  'Thin': 100
+);
+@include font-import('montserrat', 'montserrat', 'Montserrat', normal, $montserratWeightMatch);
+
+// Roboto
+$robotoWeightMatch: (
+  'Bold': 700,
+  'Medium': 500,
+  'Regular': 400,
+  'Light': 300,
+  'Thin': 100
+);
+@include font-import('roboto', 'roboto-mono', 'RobotoMono', normal, $robotoWeightMatch);
+
+// Icomoon
+@include font-face('icomoon', 'icomoon/fonts', 'icomoon');

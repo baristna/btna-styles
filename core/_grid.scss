@@ -1,0 +1,163 @@
+@import '../variables.scss';
+
+.container {
+  max-width: 1024px;
+  margin: 0 auto;
+}
+
+.row {
+  display: flex;
+  margin-left: -($gutter-width / 2);
+  margin-right: -($gutter-width / 2);
+  margin-bottom: $general-padding;
+
+  &.wrap {
+    flex-wrap: wrap;
+  }
+
+  &.v_center {
+    align-items: center;
+  }
+
+  &.v_start {
+    align-items: flex-start;
+  }
+
+  &.v_end {
+    align-items: flex-end;
+  }
+
+  &.h_start {
+    justify-content: flex-start;
+  }
+
+  &.h_center {
+    justify-content: center;
+  }
+
+  &.h_end {
+    justify-content: flex-end;
+  }
+
+  &.h_between {
+    justify-content: space-between;
+  }
+
+  &.h_around {
+    justify-content: space-around;
+  }
+}
+
+.col {
+  margin-left: ($gutter-width / 2);
+  margin-right: ($gutter-width / 2);
+  flex-shrink: 0;
+}
+
+.col_grow {
+  flex-grow: 1;
+}
+
+.col_1 {
+  margin-left: ($gutter-width / 2);
+  margin-right: ($gutter-width / 2);
+  flex-basis: calc(100% / 12 - #{$gutter-width});
+}
+
+.col_2 {
+  margin-left: ($gutter-width / 2);
+  margin-right: ($gutter-width / 2);
+  flex-basis: calc(200% / 12 - #{$gutter-width});
+}
+
+.col_3 {
+  margin-left: ($gutter-width / 2);
+  margin-right: ($gutter-width / 2);
+  flex-basis: calc(300% / 12 - #{$gutter-width});
+}
+
+.col_4 {
+  margin-left: ($gutter-width / 2);
+  margin-right: ($gutter-width / 2);
+  flex-basis: calc(400% / 12 - #{$gutter-width});
+}
+
+.col_5 {
+  margin-left: ($gutter-width / 2);
+  margin-right: ($gutter-width / 2);
+  flex-basis: calc(500% / 12 - #{$gutter-width});
+}
+
+.col_6 {
+  margin-left: ($gutter-width / 2);
+  margin-right: ($gutter-width / 2);
+  flex-basis: calc(600% / 12 - #{$gutter-width});
+}
+
+.col_7 {
+  margin-left: ($gutter-width / 2);
+  margin-right: ($gutter-width / 2);
+  flex-basis: calc(700% / 12 - #{$gutter-width});
+}
+
+.col_8 {
+  margin-left: ($gutter-width / 2);
+  margin-right: ($gutter-width / 2);
+  flex-basis: calc(800% / 12 - #{$gutter-width});
+}
+
+.col_9 {
+  margin-left: ($gutter-width / 2);
+  margin-right: ($gutter-width / 2);
+  flex-basis: calc(900% / 12 - #{$gutter-width});
+}
+
+.col_10 {
+  margin-left: ($gutter-width / 2);
+  margin-right: ($gutter-width / 2);
+  flex-basis: calc(1000% / 12 - #{$gutter-width});
+}
+
+.col_11 {
+  margin-left: ($gutter-width / 2);
+  margin-right: ($gutter-width / 2);
+  flex-basis: calc(1100% / 12 - #{$gutter-width});
+}
+
+.col_12 {
+  margin-left: ($gutter-width / 2);
+  margin-right: ($gutter-width / 2);
+  flex-basis: calc(1200% / 12 - #{$gutter-width});
+}
+
+.col_v_start {
+  align-self: flex-start;
+}
+
+.col_v_center {
+  align-self: center;
+}
+
+.col_v_end {
+  align-self: flex-end;
+}
+
+.col_h_end {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.col_h_center {
+  display: flex;
+  justify-content: center;
+}
+
+.col_h_start {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.divider {
+  flex-grow: 1;
+  flex-shrink: 1;
+}

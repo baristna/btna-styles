@@ -1,0 +1,23 @@
+//
+// Typography
+// -----------------------------------------------------------------------------
+
+$font-size-base:                        14px;
+$font-weight-base:                      400;
+$font-family-base:                      'montserrat';
+$font-family-head:                      'montserrat';
+
+$font-family-primary:                   'montserrat';
+$font-family-secondary:                 'montserrat';
+$font-family-mono:                      'roboto';
+
+$font-line-height:                      1.428571429 !default;
+$font-line-height-comp:                 floor(($font-size-base * $font-line-height)) !default;
+
+$font-size-mega:                        $font-size-base + 10px;
+$font-size-xlarge:                      $font-size-base + 6px;
+$font-size-large:                       $font-size-base + 4px;
+$font-size-medium:                      $font-size-base + 2px;
+$font-size-small:                       $font-size-base - 2px;
+$font-size-xsmall:                      $font-size-base - 4px;
+$font-size-tiny:                        $font-size-base - 6px;

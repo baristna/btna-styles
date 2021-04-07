@@ -1,0 +1,70 @@
+//
+// BASE
+// --------------------------------------------------
+
+html {
+  -webkit-tap-highlight-color: transparent;
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body, .app {
+  font-family: $font-family-base;
+  font-size: $font-size-base;
+  line-height: $font-line-height;
+  @include rootTheme(color, defaults, text);
+  @include rootTheme(background-color, defaults, background);
+  height: 100vh;
+  min-width: 375px;
+  overflow: scroll;
+}
+
+input,
+button,
+select,
+textarea {
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  @include theme(color, defaults, text);
+  @include theme(background-color, defaults, background);
+
+  &:focus {
+    outline: none;
+  }
+}
+
+a {
+  @include theme(color, defaults, link);
+  text-decoration: none;
+
+  &:focus {
+    outline: none;
+  }
+
+  &:hover {
+    @include theme(color, defaults, link-hover);
+  }
+}
+
+figure {
+  margin: 0;
+}
+
+img {
+  vertical-align: middle;
+}
+
+hr {
+  margin-top: $font-line-height-comp;
+  margin-bottom: $font-line-height-comp;
+  border: 0;
+  @include theme(border-top, defaults, border, 1px solid);
+}

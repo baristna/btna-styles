@@ -1,0 +1,38 @@
+$light-theme: (
+  'defaults': (
+    'text': #000,
+    'background': #EEE,
+    'secondary-background': #FFF,
+    'link': #800,
+    'link-hover': #F00,
+    'highlight': #800,
+    'border': #aaa,
+    'border-smooth': rgba(#aaa, 0.5),
+  ),
+  'pick': (
+    'background': #000
+  ),
+  'button': (
+    'primary-background': #800,
+    'primary-background-hover': #A00,
+    'primary-text': #FFF,
+    'primary-border': #FFF,
+    'secondary-background': #FFF,
+    'secondary-background-hover': #EEE,
+    'secondary-text': #333,
+    'secondary-border': #800,
+    'secondary-border-hover': #A00,
+    'ghost-background': transparent,
+    'ghost-background-hover': rgba(0,0,0,0.15),
+    'ghost-text': #333,
+    'ghost-text-hover': #000,
+    'ghost-border': none,
+    'shadow': 1px 2px 4px rgba(0, 0, 0, 0.40)
+  ),
+  'input': (
+    'background': #FFF,
+    'background-hover': #DDD,
+    'placeholder': #666,
+    'border': #000
+  )
+);

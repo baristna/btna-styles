@@ -1,0 +1,93 @@
+$directions: (
+  '': '',
+  '-top': '-top',
+  '-bot': '-bottom',
+  '-left': '-left',
+  '-right': '-right'
+);
+
+$size-none:                             0px;
+$size-piece:                            2px;
+$size-tiny:                             5px;
+$size-half:                             10px;
+$size-small:                            15px;
+$size-normal:                           20px;
+$size-medium:                           25px;
+$size-big:                              30px;
+$size-double:                           40px;
+$size-large:                            50px;
+$size-mega:                             70px;
+$size-max:                              100px;
+
+$sizes: (
+  '-none':                              $size-none,
+  '-piece':                             $size-piece,
+  '-tiny':                              $size-tiny,
+  '-half':                              $size-half,
+  '-small':                             $size-small,
+  '-normal':                            $size-normal,
+  '-medium':                            $size-medium,
+  '-big':                               $size-big,
+  '-double':                            $size-double,
+  '-large':                             $size-large,
+  '-mega':                              $size-mega,
+  '-max':                               $size-max,
+);
+
+
+@mixin distPaddings() {
+  @each $dirKey, $dirVal in $directions {
+    @if ($dirKey == '') {
+      @each $sizeKey, $sizeValue in $sizes {
+        &#{$sizeKey} {
+          @each $dirKey2, $dirVal2 in $directions {
+            @if ($dirVal2 != '') {
+              padding#{$dirVal2}: $sizeValue;
+            }
+          }
+        }
+      }
+    } @else {
+      &#{$dirKey} {
+        @each $sizeKey, $sizeValue in $sizes {
+          &#{$sizeKey} {
+            padding#{$dirVal}: $sizeValue;
+          }
+        }
+      }
+    }
+  }
+}
+
+@mixin distMargins() {
+  @each $dirKey, $dirVal in $directions {
+    @if ($dirKey == '') {
+      @each $sizeKey, $sizeValue in $sizes {
+        &#{$sizeKey} {
+          @each $dirKey2, $dirVal2 in $directions {
+            @if ($dirVal2 != '') {
+              margin#{$dirVal}: $sizeValue;
+            }
+          }
+        }
+      }
+    } @else {
+      &#{$dirKey} {
+        @each $sizeKey, $sizeValue in $sizes {
+          &#{$sizeKey} {
+            margin#{$dirVal}: $sizeValue;
+          }
+        }
+      }
+    }
+  }
+}
+
+@mixin distSpaces() {
+  &-gap {
+    @include distMargins();
+  }
+  &-pad {
+    @include distPaddings();
+  }
+}

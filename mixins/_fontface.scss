@@ -1,0 +1,55 @@
+//
+//  Mixin Usage
+//  @include font-face($fontName, $fontFolder, $fontFileName, $fontWeight: normal, $fontStyle: normal);
+//
+
+//
+// Font-Face Mixin
+//
+
+@mixin font-face-legacy($font-name, $font-folder, $font-file-name, $font-weight : normal, $font-style : normal) {
+  @font-face {
+    font-family: $font-name;
+    src: url("/public/fonts/#{$font-folder}/#{$font-file-name}.eot");
+    src: url("/public/fonts/#{$font-folder}/#{$font-file-name}.eot?#iefix") format("embedded-opentype"),
+         url("/public/fonts/#{$font-folder}/#{$font-file-name}.woff") format("woff"),
+         url("/public/fonts/#{$font-folder}/#{$font-file-name}.ttf") format("truetype"),
+         url("/public/fonts/#{$font-folder}/#{$font-file-name}.svg##{$font-file-name}") format("svg");
+    font-weight: $font-weight; font-style: $font-style;}
+}
+
+//
+// Font Face Mixin for modern browsers
+// IE 9+
+//
+
+@mixin font-face ($font-name, $font-folder, $font-file-name, $font-weight : normal, $font-style : normal) {
+  @font-face {
+    font-family: $font-name;
+    src: url("/fonts/#{$font-folder}/#{$font-file-name}.woff2") format("woff2"), // Modern Browsers
+         url("/fonts/#{$font-folder}/#{$font-file-name}.woff") format("woff"), // Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+         url("/fonts/#{$font-folder}/#{$font-file-name}.ttf") format("truetype"); // Chrome 4+, Firefox 3.5, Opera 10+, Safari 3—5 */
+    font-weight: $font-weight; font-style: $font-style;
+  }
+}
+
+
+$defaultWeightMatch: (
+  'ExtraBold': 910,
+  'Black': 900,
+  'Heavy': 800,
+  'Bold': 700,
+  'SemiBold': 600,
+  'Medium': 500,
+  'Regular': 400,
+  'Light': 300,
+  'ExtraLight': 200,
+  'Thin': 100
+);
+
+@mixin font-import ($name, $folder, $file, $style: normal, $map: $defaultWeightMatch) {
+  @each $weightName, $weightNumber in $map {
+    $full-file-name: $file + '-' + $weightName;
+    @include font-face($name, $folder, $full-file-name, $weightNumber, $style);
+  }
+}

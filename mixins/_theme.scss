@@ -1,0 +1,67 @@
+//
+//  Mixin Usage
+//  @include theme(
+//    $attr: to use as attribute name like 'background'
+//    $name: take item from theme list like 'default-background'
+//    $self: if its true classname directly bond with theme as (.some-class[theme='light']) instead of atroot ([theme='light'] .some-class)
+//  )
+//
+//  Example
+//  .some-class {
+//    @include theme(color, default-text); 
+//  }
+//  Result
+//  [theme='light'] .some-class { color: #000; }
+//  [theme='dark'] .some-class { color: #FFF; }
+//
+//
+//
+//  Example (self)
+//  .some-class {
+//    @include theme(color, default-text, true); 
+//  }
+//  Result
+//  .some-class[theme='light'] { color: #000; }
+//  .some-class[theme='dark'] { color: #FFF; }
+//
+//
+//  Example (extra)
+//  .some-class {
+//    @include theme(border, default-border, null, 1px solid); 
+//  }
+//  Result
+//  .some-class[theme='light'] { border: #333 1px solid; }
+//  .some-class[theme='dark'] { border: #CCC 1px solid; }
+//
+//
+
+@mixin theme($attr, $name, $prop, $extra: null) {
+  @each $theme-name, $categories in $themes {
+    $props: map-get($categories, $name);
+    @if $props == () {
+      $default-categories: map-get($themes, $default-theme);
+      $props: map-get($default-categories, $name);
+    }
+
+    @at-root {
+      [theme="#{$theme-name}"] & {
+        #{$attr}: map-get($props, $prop) $extra;
+      }
+    }
+  }
+}
+
+@mixin rootTheme($attr, $name, $prop, $extra: null) {
+  @each $theme-name, $categories in $themes {
+    $props: map-get($categories, $name);
+    @if $props == () {
+      $default-categories: map-get($themes, $default-theme);
+      $props: map-get($default-categories, $name);
+    }
+
+    &[theme="#{$theme-name}"] {
+      #{$attr}: map-get($props, $prop) $extra;
+    }
+  }
+}
+

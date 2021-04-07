@@ -1,0 +1,47 @@
+@import '../mixins/gaps';
+
+//
+// NORMAL
+// u-gap-top-normal
+.u {
+  @include distSpaces();
+}
+
+//
+// DECREASING RESPONSIVE
+// s-desktop-gap-top-normal
+.s {
+  @each $breakpoint in $breakpoints {
+    &-#{$breakpoint} {
+      @include breakpoint(max, $breakpoint) {
+        @include distSpaces();
+      }
+    }
+  }
+}
+
+//
+// INCREASING RESPONSIVE
+// b-desktop-gap-top-normal
+.b {
+  @each $breakpoint in $breakpoints {
+    &-#{$breakpoint} {
+      @include breakpoint(min, $breakpoint) {
+        @include distSpaces();
+      }
+    }
+  }
+}
+
+//
+// INTERVAL RESPONSIVE
+// r-desktop-gap-top-normal
+.r {
+  @each $breakpoint in $breakpoints {
+    &-#{$breakpoint} {
+      @include breakpoint(zone, $breakpoint) {
+        @include distSpaces();
+      }
+    }
+  }
+}
